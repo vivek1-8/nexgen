@@ -1,0 +1,147 @@
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/instrument-sans';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-dark font-sans text-cream antialiased selection:bg-orange selection:text-dark;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    letter-spacing: -0.025em;
+  }
+  ::selection {
+    background: #FF6B35;
+    color: #101010;
+  }
+  :focus-visible {
+    outline: 2px solid #FF6B35;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img {
+    @apply max-w-full;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-12;
+  }
+  .section {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+  .h-display {
+    @apply font-display text-[2.75rem] font-bold leading-[1.03] tracking-tight sm:text-6xl lg:text-[4.75rem];
+  }
+  .h-section {
+    @apply text-balance font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl;
+  }
+  .lede {
+    @apply max-w-2xl text-lg leading-relaxed text-muted-light sm:text-xl;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold transition-all duration-200 active:scale-[0.98];
+  }
+  .btn-primary, .btn-orange {
+    @apply bg-orange text-dark hover:bg-orange-hover hover:shadow-glow-orange hover:text-dark;
+  }
+  .btn-lime {
+    @apply bg-lime text-dark hover:bg-lime-hover hover:shadow-glow-lime hover:text-dark;
+  }
+  .btn-dark {
+    @apply bg-charcoal text-cream border border-white/10 hover:border-orange hover:text-orange;
+  }
+  .btn-ghost {
+    @apply border border-white/20 text-cream hover:border-orange hover:bg-orange/10 hover:text-orange;
+  }
+  .btn-cream-ghost {
+    @apply border border-charcoal/20 text-charcoal hover:border-orange hover:bg-orange hover:text-dark;
+  }
+  .btn-cream-primary {
+    @apply bg-charcoal text-cream hover:bg-orange hover:text-dark hover:shadow-glow-orange;
+  }
+
+  /* Form Fields */
+  .field {
+    @apply w-full rounded-xl border border-white/15 bg-charcoal-card px-4 py-3.5 text-[15px] text-cream placeholder:text-muted transition-colors focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange;
+  }
+  .field-light {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-4 py-3.5 text-[15px] text-charcoal placeholder:text-muted-dark transition-colors focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange;
+  }
+
+  /* Badges & Accents */
+  .badge-tag {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider;
+  }
+  .badge-lime {
+    @apply badge-tag bg-lime/15 text-lime border border-lime/30;
+  }
+  .badge-orange {
+    @apply badge-tag bg-orange/15 text-orange border border-orange/30;
+  }
+  .badge-coral {
+    @apply badge-tag bg-coral/15 text-coral border border-coral/30;
+  }
+  .badge-cream {
+    @apply badge-tag bg-charcoal/10 text-charcoal border border-charcoal/20;
+  }
+
+  /* Links */
+  .link-u {
+    @apply underline decoration-white/25 underline-offset-4 transition-colors hover:text-orange hover:decoration-orange;
+  }
+  .link-cream {
+    @apply underline decoration-charcoal/25 underline-offset-4 transition-colors hover:text-orange hover:decoration-orange;
+  }
+}
+
+/* Background Patterns */
+.bg-grid-mesh {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.bg-grid-mesh-light {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 23, 23, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 23, 23, 0.05) 1px, transparent 1px);
+}
+
+.bg-dots-mesh {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Gradient text utility */
+.text-gradient-orange {
+  @apply bg-gradient-to-r from-orange via-coral to-orange bg-clip-text text-transparent;
+}
+
+.text-gradient-lime {
+  @apply bg-gradient-to-r from-lime via-cream to-lime bg-clip-text text-transparent;
+}
